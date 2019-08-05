@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoolai.bi.wxadmin.mapper.ResourceMapper">
+
+    <update id="updateByresource" parameterType="com.hoolai.bi.wxadmin.entity.Resource">
+        update resource
+        set name = #{name},
+        url = #{url},
+        type = #{type}
+        where id = #{id}
+    </update>
+
+    <insert id="insertResource" parameterType="com.hoolai.bi.wxadmin.entity.Resource">
+        insert into resource (name ,url ,type) values (#{name}, #{url}, #{type})
+    </insert>
+
+    <select id="selectByType" resultType="com.hoolai.bi.wxadmin.entity.Resource">
+        select * from resource as r left join role_resource as rr on r.id = rr.resource_id where r.type = #{menu} and rr.role_id = #{roleId}
+    </select>
+</mapper>

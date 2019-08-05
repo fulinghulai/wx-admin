@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoolai.bi.wxadmin.mapper.DailyStatsDeviceMapper">
+
+    <sql id="share">
+        ds,total_num,dau_num,install_num,pay_count,pay_amount,pay_times,pay_install_count,pay_install_amount,pay_install_times
+    </sql>
+
+    <select id="queryDailyStatsDeviceList" resultType="com.hoolai.bi.wxadmin.entity.ShareDailyResultType">
+        select <include refid="share"></include> from daily_stats_device
+    </select>
+</mapper>
